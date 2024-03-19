@@ -23,7 +23,7 @@ public class dbHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE " + TABLE_ROL + "(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "nombre TEXT NOT NULL," +
-                "estodo INTEGER NOT NULL," +
+                "estado INTEGER NOT NULL," +
                 "fechaCreacion DATE NOT NULL," +
                 "fechaActualizado DATE)");
     }

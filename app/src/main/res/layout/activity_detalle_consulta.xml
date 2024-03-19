@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".DetalleConsultaActivity">
+
+    <TextView
+        android:id="@+id/textViewConsultaId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ID de Consulta:"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textViewConsultaIdValor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingBottom="16dp" />
+
+    <TextView
+        android:id="@+id/textViewEvaluacionFinal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Evaluación Final:"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editTextEvaluacionFinal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese evaluación final"
+        android:inputType="textMultiLine"
+        android:lines="5"
+        android:gravity="top"
+        android:padding="10dp"
+        android:scrollbars="vertical"
+        android:background="@android:drawable/editbox_background" />
+
+    <TextView
+        android:id="@+id/textViewEstadoConsulta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Estado de Consulta:"
+        android:textSize="16sp" />
+
+    <Spinner
+        android:id="@+id/spinnerEstadoConsulta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/estado_consulta_array"
+        android:prompt="@string/estado_consulta_prompt"
+        android:paddingBottom="16dp" />
+
+    <Button
+        android:id="@+id/buttonGuardar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>
