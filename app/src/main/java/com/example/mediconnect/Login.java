@@ -12,6 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.mediconnect.db.dbHelper;
+
 public class Login extends AppCompatActivity {
 
     private EditText emailEditText;
@@ -36,10 +39,11 @@ public class Login extends AppCompatActivity {
                 String email = emailEditText.getText().toString();
                 String password = passwordEditText.getText().toString();
 
-                // Verifica si las credenciales son válidas (correo y contraseña predeterminados)
-                if (email.equals("usuario@example.com") && password.equals("password")) {
-                    // Si las credenciales son válidas, inicia la actividad Home
-                    Intent intent = new Intent(Login.this, Home.class);
+                // Verifica las credenciales en la base de datos
+                dbHelper dbHelper = new dbHelper(Login.this);
+                if (dbHelper.checkUserCredentials(email, password)) {
+                    // Si las credenciales son válidas, inicia la actividad Home2
+                    Intent intent = new Intent(Login.this, CreacionUsuarioActivity.class);
                     startActivity(intent);
                     finish(); // Finaliza la actividad de inicio de sesión para que el usuario no pueda volver atrás
                 } else {
