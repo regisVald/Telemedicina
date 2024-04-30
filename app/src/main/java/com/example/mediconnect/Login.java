@@ -30,6 +30,7 @@ public class Login extends AppCompatActivity {
         emailEditText = findViewById(R.id.editTextTextEmailAddress);
         passwordEditText = findViewById(R.id.editTextTextPassword);
 
+
         // Añade un OnClickListener al botón de inicio de sesión
         Button loginButton = findViewById(R.id.button2);
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -42,8 +43,11 @@ public class Login extends AppCompatActivity {
                 // Verifica las credenciales en la base de datos
                 dbHelper dbHelper = new dbHelper(Login.this);
                 if (dbHelper.checkUserCredentials(email, password)) {
+
+                    String nombreUsuario = dbHelper.obtenerNombreUsuario(email);
                     // Si las credenciales son válidas, inicia la actividad Home2
-                    Intent intent = new Intent(Login.this, CreacionUsuarioActivity.class);
+                    Intent intent = new Intent(Login.this, Home.class);
+                    intent.putExtra("nombreUsuario", nombreUsuario);
                     startActivity(intent);
                     finish(); // Finaliza la actividad de inicio de sesión para que el usuario no pueda volver atrás
                 } else {
