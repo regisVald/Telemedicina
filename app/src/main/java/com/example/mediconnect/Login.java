@@ -27,12 +27,21 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         // Obtiene referencias a los EditText para correo electrónico y contraseña
-        emailEditText = findViewById(R.id.editTextTextEmailAddress);
-        passwordEditText = findViewById(R.id.editTextTextPassword);
+        emailEditText = findViewById(R.id.editTextText2);
+        passwordEditText = findViewById(R.id.editTextText3);
 
 
         // Añade un OnClickListener al botón de inicio de sesión
         Button loginButton = findViewById(R.id.button2);
+        Button RegistrarButton = findViewById(R.id.btnRegistrarse);
+
+        RegistrarButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Login.this, CreacionUsuarioActivity.class);
+                startActivity(intent);
+            }
+        });
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

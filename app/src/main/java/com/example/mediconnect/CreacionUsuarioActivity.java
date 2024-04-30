@@ -1,4 +1,5 @@
 package com.example.mediconnect;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,13 +30,23 @@ public class CreacionUsuarioActivity extends AppCompatActivity {
         dataSource.open();
 
         // Enlazar vistas
-        editTextUsuario = findViewById(R.id.editTextUsuario);
-        editTextCorreo = findViewById(R.id.editTextCorreo);
-        editTextContrasenia = findViewById(R.id.editTextContrasenia);
-        buttonCrearUsuario = findViewById(R.id.buttonCrearUsuario);
-        textViewUsuarios = findViewById(R.id.textViewUsuarios);
+        editTextUsuario = findViewById(R.id.txtUsuario);
+        editTextCorreo = findViewById(R.id.txtEmail);
+        editTextContrasenia = findViewById(R.id.txtPassword);
+        buttonCrearUsuario = findViewById(R.id.btnRegistrase);
+        Button btnBack = findViewById(R.id.btnBack);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CreacionUsuarioActivity.this, Login.class);
+                startActivity(intent);
+            }
+        });
 
         // Configurar el botón para crear usuario
+
+
         buttonCrearUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,14 +60,14 @@ public class CreacionUsuarioActivity extends AppCompatActivity {
 
                 if (id != -1) {
                     Toast.makeText(CreacionUsuarioActivity.this, "Usuario creado con éxito", Toast.LENGTH_SHORT).show();
-                    // Mostrar el usuario creado en el TextView
-                    String usuariosAnteriores = textViewUsuarios.getText().toString();
-                    String usuariosActualizados = usuariosAnteriores + "\n" + usuario;
-                    textViewUsuarios.setText(usuariosActualizados);
-                    // Limpiar los campos después de la creación exitosa
-                    editTextUsuario.setText("");
-                    editTextCorreo.setText("");
-                    editTextContrasenia.setText("");
+//                    // Mostrar el usuario creado en el TextView
+//                    String usuariosAnteriores = textViewUsuarios.getText().toString();
+//                    String usuariosActualizados = usuariosAnteriores + "\n" + usuario;
+//                    textViewUsuarios.setText(usuariosActualizados);
+//                    // Limpiar los campos después de la creación exitosa
+//                    editTextUsuario.setText("");
+//                    editTextCorreo.setText("");
+//                    editTextContrasenia.setText("");
                 } else {
                     Toast.makeText(CreacionUsuarioActivity.this, "Error al crear el usuario", Toast.LENGTH_SHORT).show();
                 }

@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Login"
-    android:background="#F3F3F3"
-    >
+    android:background="#F3F3F3">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -32,6 +31,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView5"
         android:layout_width="match_parent"
         android:layout_height="450dp"
         android:layout_marginStart="32dp"
@@ -48,16 +48,16 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="25dp"
-            android:textSize="20dp"
             android:layout_marginTop="25dp"
             android:fontFamily="sans-serif"
             android:text="MEDICONNECT"
             android:textAlignment="center"
             android:textColor="#1b4e7d"
+            android:textSize="20dp"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editTextTextEmailAddress"
+            android:id="@+id/editTextText2"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginLeft="20dp"
@@ -71,7 +71,7 @@
             android:textColorHint="#b2b4b6" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/editTextText3"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginLeft="20dp"
@@ -109,6 +109,17 @@
             android:textColor="@color/black"
             android:textColorLink="@color/black" />
 
+        <Button
+            android:id="@+id/btnRegistrarse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="424dp"
+            android:background="@drawable/button_rounded2"
+            android:backgroundTint="#756BFF"
+            android:text="Registrarse" />
+
     </androidx.cardview.widget.CardView>
+
+    <!-- Nuevo botón -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
