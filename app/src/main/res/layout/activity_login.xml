@@ -57,7 +57,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editTextText2"
+            android:id="@+id/editTextTextEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginLeft="20dp"
@@ -71,7 +71,7 @@
             android:textColorHint="#b2b4b6" />
 
         <EditText
-            android:id="@+id/editTextText3"
+            android:id="@+id/editTextTextPassword"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginLeft="20dp"
