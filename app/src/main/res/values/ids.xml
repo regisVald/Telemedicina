@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="textViewTitulo" type="id" />
+    <item name="editTextClienteId" type="id" />
+    <item name="textViewMetodoPago" type="id" />
+    <item name="spinnerMedico" type="id" />
+    <item name="editTextMontoConsulta" type="id" />
+    <item name="textViewTipoPago" type="id" />
+    <item name="spinnerTipoPago" type="id" />
+    <item name="buttonSeleccionarFecha" type="id" />
+    <item name="textViewFechaConsulta" type="id" />
+    <item name="txtFechaCreacion" type="id" />
+    <item name="buttonGuardar" type="id" />
+</resources>

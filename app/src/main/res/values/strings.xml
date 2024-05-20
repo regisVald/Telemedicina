@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">MediConnect</string>
+    <string-array name="tipo_pago_array">
+        <item>Tarjeta</item>
+        <item>Efectivo</item>
+        <item>Chivo wallet</item>
+        <!-- Agrega más tipos de pago según sea necesario -->
+    </string-array>
+    <string-array name="medicos_array">
+        <item>Médico 1</item>
+        <item>Médico 2</item>
+        <item>Médico 3</item>
+        <!-- Agrega más médicos según sea necesario -->
+    </string-array>
+    <string name="estado_consulta_prompt">Selecciona estado de consulta</string>
+
+    <string-array name="estado_consulta_array">
+        <item>Finalizada</item>
+        <item>Cancelada</item>
+        <item>Otro Estado</item>
+        <!-- Agrega más estados según sea necesario -->
+    </string-array>
+    <string name="hint_nombre">Nombre:</string>
 </resources>
