@@ -36,6 +36,8 @@ public class TestFirebase extends AppCompatActivity {
         initializeUI();
 
         btnAgregar.setOnClickListener(this::onAddButtonClick);
+
+        //prueba
     }
 
     private void initializeFirebase() {
