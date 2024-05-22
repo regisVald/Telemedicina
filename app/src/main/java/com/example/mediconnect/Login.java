@@ -6,70 +6,61 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
-import com.example.mediconnect.db.dbHelper;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity {
-
-    private EditText emailEditText;
-    private EditText passwordEditText;
+    private EditText emailEditText, passwordEditText;
+    private Button loginButton;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
 
-        // Obtiene referencias a los EditText para correo electrónico y contraseña
-        emailEditText = findViewById(R.id.editTextText2);
-        passwordEditText = findViewById(R.id.editTextText3);
+        emailEditText = findViewById(R.id.emailEditText);
+        passwordEditText = findViewById(R.id.passwordEditText);
+        loginButton = findViewById(R.id.loginButton);
 
+        mAuth = FirebaseAuth.getInstance();
 
-        // Añade un OnClickListener al botón de inicio de sesión
-        Button loginButton = findViewById(R.id.button2);
-        Button RegistrarButton = findViewById(R.id.btnRegistrarse);
-
-        RegistrarButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Login.this, CreacionUsuarioActivity.class);
-                startActivity(intent);
-            }
-        });
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Obtiene el correo electrónico y la contraseña ingresados por el usuario
-                String email = emailEditText.getText().toString();
-                String password = passwordEditText.getText().toString();
-
-                // Verifica las credenciales en la base de datos
-                dbHelper dbHelper = new dbHelper(Login.this);
-                if (dbHelper.checkUserCredentials(email, password)) {
-
-                    String nombreUsuario = dbHelper.obtenerNombreUsuario(email);
-                    // Si las credenciales son válidas, inicia la actividad Home2
-                    Intent intent = new Intent(Login.this, Home.class);
-                    intent.putExtra("nombreUsuario", nombreUsuario);
-                    startActivity(intent);
-                    finish(); // Finaliza la actividad de inicio de sesión para que el usuario no pueda volver atrás
-                } else {
-                    // Si las credenciales son inválidas, muestra un mensaje de error
-                    Toast.makeText(Login.this, "Correo electrónico o contraseña incorrectos", Toast.LENGTH_SHORT).show();
-                }
+                signIn();
             }
         });
+    }
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+    private void signIn() {
+        String email = emailEditText.getText().toString().trim();
+        String password = passwordEditText.getText().toString().trim();
+
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(Login.this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            //FirebaseUser user = mAuth.getCurrentUser();
+                            Toast.makeText(Login.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(Login.this, DoctorActivity.class));
+                            //finish();
+                        } else {
+                            Toast.makeText(Login.this, "Correo o contraseña invalidos", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
     }
 }

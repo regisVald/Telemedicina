@@ -2,242 +2,118 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#746BFE"
-    android:backgroundTint="#746BFE"
-    tools:context=".Home">
+    android:background="#FFFFFF">
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:fontFamily="sans-serif"
-        android:text="Hola, Usuario"
-        android:textColor="@color/white"
-        android:textSize="25dp"
+        android:text="Bienvenido a MediConnect"
+        android:textColor="#000000"
+        android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.093"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView3"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:backgroundTint="#CCC4C4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="10dp"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/home" />
-
-        <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="120dp"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/envelope" />
-
-        <ImageButton
-            android:id="@+id/imageButton3"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="230dp"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/calendar" />
-
-        <ImageButton
-            android:id="@+id/imageButton4"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="330dp"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/user_icon" />
-    </androidx.cardview.widget.CardView>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="480dp"
-        android:background="@drawable/rounded_corner_top_left"
-        app:layout_constraintBottom_toTopOf="@+id/cardView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:fontFamily="sans-serif"
-            android:textSize="20dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="30dp"
-            android:text="¿Que servicio necesita?" />
-
-        <FrameLayout
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginLeft="30dp"
-            android:backgroundTint="#DEDEDE"
-            android:background="@drawable/button_rounded2"
-            >
-
-            <ImageView
-                android:id="@+id/imgConsulta"
-                android:layout_width="wrap_content"
-                android:layout_height="120dp"
-                app:srcCompat="@drawable/smartphone" />
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:fontFamily="sans-serif"
-                android:textSize="15dp"
-                android:layout_marginTop="130dp"
-                android:textAlignment="center"
-                android:text="Consulta virtual" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginLeft="200dp"
-            android:backgroundTint="#DEDEDE"
-            android:background="@drawable/button_rounded2"
-            >
-            <ImageView
-                android:id="@+id/imgEspecialidades"
-                android:layout_width="wrap_content"
-                android:layout_height="120dp"
-                app:srcCompat="@drawable/hospital" />
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:fontFamily="sans-serif"
-                android:textSize="15dp"
-                android:layout_marginTop="130dp"
-                android:textAlignment="center"
-                android:text="Especialidades" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="280dp"
-            android:layout_marginLeft="200dp"
-            android:backgroundTint="#DEDEDE"
-            android:background="@drawable/button_rounded2"
-            >
-            <ImageView
-                android:id="@+id/imgPrecios"
-                android:layout_width="wrap_content"
-                android:layout_height="120dp"
-                app:srcCompat="@drawable/salary" />
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:fontFamily="sans-serif"
-                android:textSize="15dp"
-                android:layout_marginTop="130dp"
-                android:textAlignment="center"
-                android:text="Precios" />
-        </FrameLayout>
-        <FrameLayout
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="280dp"
-            android:layout_marginLeft="30dp"
-            android:backgroundTint="#DEDEDE"
-            android:background="@drawable/button_rounded2"
-            >
-            <ImageView
-                android:id="@+id/imgDoctores"
-                android:layout_width="wrap_content"
-                android:layout_height="120dp"
-                app:srcCompat="@drawable/doctors" />
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:fontFamily="sans-serif"
-                android:textSize="15dp"
-                android:layout_marginTop="130dp"
-                android:textAlignment="center"
-                android:text="Doctores" />
-        </FrameLayout>
-    </FrameLayout>
-
-    <ImageView
-        android:id="@+id/imgProfile"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.955"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/user" />
+        app:layout_constraintVertical_bias="0.1" />
 
-    <FrameLayout
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="112dp"
-        android:background="@drawable/button_rounded2"
-        android:backgroundTint="@color/white"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView">
 
-        <TextView
-            android:id="@+id/textView14"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:fontFamily="sans-serif"
-            android:text="      Buscar..."
-            android:textAlignment="textStart"
-            android:textColor="#DEDEDE"
-            android:textSize="15dp"
-            android:textStyle="bold" />
+            android:orientation="horizontal"
+            android:background="#CACACA"
+            >
 
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="350dp"
-            android:layout_marginTop="5dp"
-            app:srcCompat="@drawable/search" />
-    </FrameLayout>
+            <LinearLayout
+                android:id="@+id/option1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center">
 
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/ic_logo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Opcion3"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:layout_marginTop="8dp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/option2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/ic_logo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Opcion2"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:layout_marginTop="8dp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/option3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/ic_logo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Opcion 1"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:layout_marginTop="8dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

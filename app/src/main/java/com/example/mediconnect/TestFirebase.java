@@ -1,87 +1,68 @@
 package com.example.mediconnect;
 
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
+
+import com.example.mediconnect.adapter.PetAdapter;
+import com.example.mediconnect.model.Pet;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreSettings;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TestFirebase extends AppCompatActivity {
 
-    private static final String TAG = "TestFirebase";
-
-    private Button btnAgregar;
-    private EditText txtNombre, txtEdad, txtColor;
-    private FirebaseFirestore mfirestore;
+    private static final String TAG = "MainActivity";
+    private FirebaseFirestore db;
+    private RecyclerView recyclerView;
+    private PetAdapter petAdapter;
+    private List<Pet> petList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_firebase);
 
-        initializeFirebase();
-        initializeUI();
+        db = FirebaseFirestore.getInstance();
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        btnAgregar.setOnClickListener(this::onAddButtonClick);
+        petList = new ArrayList<>();
+        petAdapter = new PetAdapter(petList);
+        recyclerView.setAdapter(petAdapter);
 
-        //prueba
+        readData();
     }
 
-    private void initializeFirebase() {
-        mfirestore = FirebaseFirestore.getInstance();
-    }
-
-    private void initializeUI() {
-        btnAgregar = findViewById(R.id.btnAgregar);
-        txtNombre = findViewById(R.id.txtNombre);
-        txtEdad = findViewById(R.id.txtEdad);
-        txtColor = findViewById(R.id.txtColor);
-    }
-
-    private void onAddButtonClick(View view) {
-        String nombre = txtNombre.getText().toString().trim();
-        String edad = txtEdad.getText().toString().trim();
-        String color = txtColor.getText().toString().trim();
-
-        if (isInputValid(nombre, edad, color)) {
-            enviarDatos(nombre, edad, color);
-        } else {
-            Toast.makeText(this, "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private boolean isInputValid(String nombre, String edad, String color) {
-        return !nombre.isEmpty() && !edad.isEmpty() && !color.isEmpty();
-    }
-
-    private void enviarDatos(String nombre, String edad, String color) {
-        Map<String, Object> data = new HashMap<>();
-        data.put("nombre", nombre);
-        data.put("edad", edad);
-        data.put("color", color);
-
-        mfirestore.collection("pet")
-                .add(data)
-                .addOnSuccessListener(documentReference -> {
-                    Log.d(TAG, "Documento creado con ID: " + documentReference.getId());
-                    Toast.makeText(TestFirebase.this, "Creado Exitosamente", Toast.LENGTH_SHORT).show();
-                })
-                .addOnFailureListener(e -> {
-                    Log.e(TAG, "Error al crear documento", e);
-                    Toast.makeText(TestFirebase.this, "Error al ingresar", Toast.LENGTH_SHORT).show();
+    public void readData() {
+        db.collection("pet")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            petList.clear();
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Pet pet = document.toObject(Pet.class);
+                                petList.add(pet);
+                            }
+                            petAdapter.notifyDataSetChanged();
+                            Toast.makeText(TestFirebase.this, "Data read", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Log.w(TAG, "Error getting documents.", task.getException());
+                            Toast.makeText(TestFirebase.this, "Error reading data", Toast.LENGTH_SHORT).show();
+                        }
+                    }
                 });
     }
 }
