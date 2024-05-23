@@ -54,7 +54,7 @@ public class Login extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             //FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(Login.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(Login.this, DoctorActivity.class));
+                            startActivity(new Intent(Login.this, Home.class));
                             //finish();
                         } else {
                             Toast.makeText(Login.this, "Correo o contraseña invalidos", Toast.LENGTH_SHORT).show();
