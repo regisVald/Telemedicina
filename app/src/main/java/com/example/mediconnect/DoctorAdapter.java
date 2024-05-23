@@ -1,87 +1,62 @@
 package com.example.mediconnect;
 
+// DoctorsAdapter.java
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorViewHolder> {
-    private List<Doctor> doctorList;
-    private OnEditButtonClickListener editButtonClickListener;
-    private OnDeleteButtonClickListener deleteButtonClickListener;
 
-    public DoctorAdapter(List<Doctor> doctorList, OnEditButtonClickListener editButtonClickListener, OnDeleteButtonClickListener deleteButtonClickListener) {
-        this.doctorList = doctorList;
-        this.editButtonClickListener = editButtonClickListener;
-        this.deleteButtonClickListener = deleteButtonClickListener;
+    private Context context;
+    private List<Doctor> doctorsList;
+
+    public DoctorAdapter(Context context, List<Doctor> doctorsList) {
+        this.context = context;
+        this.doctorsList = doctorsList;
     }
 
     @NonNull
     @Override
     public DoctorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_doctor, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_doctor, parent, false);
         return new DoctorViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull DoctorViewHolder holder, int position) {
-        Doctor doctor = doctorList.get(position);
-        holder.nameTextView.setText(doctor.getName());
-        holder.specialtyTextView.setText(doctor.getSpecialty());
-        holder.emailTextView.setText(doctor.getEmail());
-        holder.phoneNumberTextView.setText(doctor.getPhoneNumber());
-
-        holder.editButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (editButtonClickListener != null) {
-                    editButtonClickListener.onEditButtonClick(doctor);
-                }
-            }
-        });
-
-        holder.deleteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (deleteButtonClickListener != null) {
-                    deleteButtonClickListener.onDeleteButtonClick(doctor);
-                }
-            }
-        });
+        Doctor doctor = doctorsList.get(position);
+        holder.doctorName.setText(doctor.getName());
+        holder.doctorSpecialty.setText(doctor.getSpecialty());
+        holder.doctorImage.setImageResource(doctor.getImageResId());
     }
 
     @Override
     public int getItemCount() {
-        return doctorList.size();
+        return doctorsList.size();
     }
 
-    public interface OnEditButtonClickListener {
-        void onEditButtonClick(Doctor doctor);
-    }
+    public static class DoctorViewHolder extends RecyclerView.ViewHolder {
 
-    public interface OnDeleteButtonClickListener {
-        void onDeleteButtonClick(Doctor doctor);
-    }
-
-    static class DoctorViewHolder extends RecyclerView.ViewHolder {
-        TextView nameTextView, specialtyTextView, emailTextView, phoneNumberTextView;
-        Button editButton, deleteButton;
+        ImageView doctorImage;
+        TextView doctorName;
+        TextView doctorSpecialty;
 
         public DoctorViewHolder(@NonNull View itemView) {
             super(itemView);
-            nameTextView = itemView.findViewById(R.id.nameTextView);
-            specialtyTextView = itemView.findViewById(R.id.specialtyTextView);
-            emailTextView = itemView.findViewById(R.id.emailTextView);
-            phoneNumberTextView = itemView.findViewById(R.id.phoneNumberTextView);
-            editButton = itemView.findViewById(R.id.editButton);
-            deleteButton = itemView.findViewById(R.id.deleteButton);
+            doctorImage = itemView.findViewById(R.id.doctorImage);
+            doctorName = itemView.findViewById(R.id.doctorName);
+            doctorSpecialty = itemView.findViewById(R.id.doctorSpecialty);
         }
     }
 }
+
+
 
 
 

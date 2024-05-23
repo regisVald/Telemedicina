@@ -10,17 +10,20 @@
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lista de Doctores"
+        android:text="Precios de Servicios"
         android:textStyle="bold"
         android:textSize="24sp"
         android:textColor="#FFFFFF"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/doctorsRecyclerView"
+    <ListView
+        android:id="@+id/pricesListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/titleTextView"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="8dp"/>
+
 </RelativeLayout>
