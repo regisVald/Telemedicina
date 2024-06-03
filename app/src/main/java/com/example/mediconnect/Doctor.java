@@ -1,25 +1,41 @@
 package com.example.mediconnect;
-// Doctor.java
+
 public class Doctor {
-    private String name;
-    private String specialty;
-    private int imageResId;
+    private String Apellidos;
+    private String Nombres;
+    private String email;
+    private String especialidad;
+    private String imageUrl;
 
-    public Doctor(String name, String specialty, int imageResId) {
-        this.name = name;
-        this.specialty = specialty;
-        this.imageResId = imageResId;
+    public Doctor() {
+        // Constructor vacío necesario para Firebase
     }
 
-    public String getName() {
-        return name;
+    public Doctor(String apellidos, String nombres, String email, String especialidad, String imageUrl) {
+        Apellidos = apellidos;
+        Nombres = nombres;
+        this.email = email;
+        this.especialidad = especialidad;
+        this.imageUrl = imageUrl;
     }
 
-    public String getSpecialty() {
-        return specialty;
+    public String getApellidos() {
+        return Apellidos;
     }
 
-    public int getImageResId() {
-        return imageResId;
+    public String getNombres() {
+        return Nombres;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getEspecialidad() {
+        return especialidad;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
     }
 }

@@ -23,7 +23,7 @@
                 android:id="@+id/titleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Inicio MediConnect"
+                android:text="Registro MediConnect"
                 android:textStyle="bold"
                 android:textSize="24sp"
                 android:textColor="#000000"
@@ -55,10 +55,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#ABE0E0E0"
-                android:inputType="textEmailAddress"
+                    android:inputType="textEmailAddress"
                     android:textColor="@android:color/black"
-                    android:text="prueba@gmail.com"
-                    />
+                    android:text="prueba@gmail.com"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,10 +77,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#E0E0E0"
-                android:inputType="textPassword"
+                    android:inputType="textPassword"
                     android:textColor="@android:color/black"
-                    android:text="123456789"
-                    />
+                    android:text="123456789"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -89,25 +87,27 @@
                 android:id="@+id/registerLink"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="¿No tienes una cuenta? Regístrate aquí"
+                android:text="¿Ya tienes cuenta? Inicia sesión aquí"
                 android:textColor="#3F51B5"
                 android:textStyle="bold"
-                android:layout_below="@id/loginButton"
+                android:layout_below="@id/registerButton"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="16dp"
                 android:clickable="true"/>
 
             <Button
-                android:id="@+id/loginButton"
+                android:id="@+id/registerButton"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_below="@id/passwordInputLayout"
                 android:layout_marginTop="24dp"
-                android:text="Iniciar Sesión"
+                android:text="Registrarse"
                 android:textColor="#FFFFFF"
                 android:background="@drawable/button_rounded"
                 android:backgroundTint="#3F51B5"
                 android:padding="12dp"/>
+
+
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>

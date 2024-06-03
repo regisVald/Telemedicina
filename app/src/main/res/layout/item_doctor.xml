@@ -9,7 +9,7 @@
     android:elevation="4dp">
 
     <ImageView
-        android:id="@+id/doctorImage"
+        android:id="@+id/imageViewDoctor"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_gravity="center_vertical"
@@ -23,7 +23,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/doctorName"
+            android:id="@+id/textViewDoctorName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nombre del Doctor"
@@ -32,12 +32,21 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/doctorSpecialty"
+            android:id="@+id/textViewDoctorSpecialty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Especialidad"
             android:textColor="#000000"
             android:textSize="16sp"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:id="@+id/textViewDoctorEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textColor="#757575"
+            android:textSize="14sp"
             android:layout_marginTop="4dp" />
     </LinearLayout>
 </LinearLayout>
