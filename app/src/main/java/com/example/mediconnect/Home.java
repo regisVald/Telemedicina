@@ -53,7 +53,7 @@ public class Home extends AppCompatActivity {
         option1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Home.this, ConsultaActivity.class));
+                startActivity(new Intent(Home.this, ForumActivity.class));
             }
         });
 

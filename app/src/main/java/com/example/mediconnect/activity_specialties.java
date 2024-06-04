@@ -26,7 +26,6 @@ public class activity_specialties extends AppCompatActivity {
         specialtiesRecyclerView = findViewById(R.id.specialtiesRecyclerView);
         specialtiesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Dummy data for demonstration
         List<Specialty> specialties = Arrays.asList(
                 new Specialty("Cardiología", R.drawable.ic_heart),
                 new Specialty("Dermatología", R.drawable.ic_dermatology),
