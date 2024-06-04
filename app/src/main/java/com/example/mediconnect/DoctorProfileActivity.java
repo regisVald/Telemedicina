@@ -50,6 +50,7 @@ public class DoctorProfileActivity extends AppCompatActivity {
         buttonMakeAppointment.setOnClickListener(v -> {
             Intent appointmentIntent = new Intent(DoctorProfileActivity.this, DoctorAppointmentActivity.class);
             appointmentIntent.putExtra("doctorName", name);
+            appointmentIntent.putExtra("specialty", specialty);
             startActivity(appointmentIntent);
         });
     }

@@ -9,45 +9,56 @@
         android:id="@+id/textViewDoctorName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:layout_centerHorizontal="true"
-        android:text="Doctor Name"
+        android:text="Doctor's Name"
+        android:textColor="#000000"
         android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="16dp" />
+        android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/editTextPatientName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nombre del Paciente"
-        android:layout_below="@id/textViewDoctorName"
-        android:layout_marginTop="16dp" />
-
-    <EditText
-        android:id="@+id/editTextDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Fecha (dd/mm/yyyy)"
-        android:layout_below="@id/editTextPatientName"
-        android:layout_marginTop="16dp" />
-
-    <EditText
-        android:id="@+id/editTextTime"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Hora (hh:mm)"
-        android:layout_below="@id/editTextDate"
-        android:layout_marginTop="16dp" />
-
-    <Button
-        android:id="@+id/buttonSubmitAppointment"
+    <TextView
+        android:id="@+id/textViewSpecialty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/textViewDoctorName"
+        android:layout_marginTop="8dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/editTextTime"
-        android:layout_marginTop="24dp"
-        android:text="Confirmar Cita"
+        android:text="Specialty"
+        android:textColor="#3F51B5"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/buttonSelectDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewSpecialty"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:text="Seleccionar fecha"
         android:backgroundTint="#3F51B5"
         android:textColor="#FFFFFF"
-        android:padding="12dp"/>
+        android:padding="12dp" />
+
+    <TextView
+        android:id="@+id/textViewSelectedDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonSelectDate"
+        android:layout_marginTop="8dp"
+        android:layout_centerHorizontal="true"
+        android:text="No hay fecha seleccionada"
+        android:textColor="#757575"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/buttonCreateAppointment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewSelectedDate"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:text="Agendar cita"
+        android:backgroundTint="#3F51B5"
+        android:textColor="#FFFFFF"
+        android:padding="12dp" />
 </RelativeLayout>
